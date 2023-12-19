@@ -1,6 +1,10 @@
 terraform {
-  backend "local" {
-    path = "terraform.tfstate"
+  backend "s3" {
+    bucket         = "baldim123"
+    key            = "home/gabriel/NewRepo/pratica/terraform.tfstate"
+    region         = "us-east-1"
+    encrypt        = true
+    dynamodb_table = "terraform-state-locking"
   }
 
   required_providers {
